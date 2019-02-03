@@ -7,13 +7,16 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
+import Movies from './Movies';
+import Vehicles from './Vehicles';
+import Starships from './Starships';
 
 const styles = theme => ({
     container: {
         display: 'flex',
-        flexGrow: 1,
-        padding: theme.spacing.unit * 4,
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     card: {
         minWidth: 275,
@@ -21,7 +24,6 @@ const styles = theme => ({
 
     },
     bullet: {
-        display: 'inline-block',
         margin: '0 2px',
         transform: 'scale(0.8)',
     },
@@ -31,7 +33,7 @@ const styles = theme => ({
     pos: {
         marginBottom: 19,
         marginTop: 19,
-        fontSize: 16
+        fontSize: 24
     },
 });
 
@@ -47,27 +49,17 @@ class Character extends React.Component {
 
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        //this.state.characters.map( character => {console.log(character)})
-    }
-
-    componentWillReceiveProps() { //this is called to before render method
-        //this.setState({
-        // characters: this.props.characters.results
-        //}, console.log(this.state.characters))
-    }
-
     render() {
         const { classes } = this.props;
         const character = this.props.characters;
         return (
             <div className="classes.container">
-                <Card key={character.url} className={classes.card}>
+                <Card key={character.url} className={classes.card} >
                     <CardContent>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             Character Name
                     </Typography>
-                        <Typography variant="h4" component="h2">
+                        <Typography variant="h2" component="h2">
                             {character.name}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
@@ -95,6 +87,19 @@ class Character extends React.Component {
                             HomeWorld: 19BBY
                     </Typography>
                     </CardContent>
+                    <Grid container spacing={16}>
+                        <Grid item xs={4}>
+                            <Movies />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Vehicles />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Starships />
+                        </Grid>
+                    </Grid>
+
+
                     <CardActions>
                         <Button size="small">Learn More</Button>
                     </CardActions>

@@ -18,6 +18,7 @@ const styles = theme => ({
   card: {
     minWidth: 275,
     backgroundColor: 'grey',
+    flexFlow: 'column'
 
   },
   bullet: {
@@ -36,53 +37,37 @@ const styles = theme => ({
 });
 
 class Result extends React.Component {
-  
-  constructor(props){
+
+  constructor(props) {
     super(props)
-    
+
     this.state = {
       characters: {},
       count: false
     };
 
-    this.updateCharacter = () => this.setState( {characters: this.props.results} )
-    this.getCount = () => this.setState( {count: true} )
+    this.updateCharacter = () => this.setState({ characters: this.props.results })
+    this.getCount = () => this.setState({ count: true })
   }
-
-   componentDidUpdate(prevProps, prevState, snapshot){
-    //if(this.props.results.count >= 1){
-      //this.getCount();
-    //}
-
-    
-    //console.log('componentDidUpdate')
-    //console.log(this.props.results)
-   }
-
-
-  // componentDidMount(){
-  //   //var name = 'luke'
-  //   fetch(`https://swapi.co/api/people/?search=${this.props.setSearch}`)
-  //   .then( response => response.json() )
-  //   .then( json => this.setState({ characters: json }, ( ) => console.log("Result: ", this.state.characters) ) )
-  // }
 
   render() {
     const { classes } = this.props;
     const characters = this.props.results.results;
     console.log("result ccomponent", characters)
-    
+
     return (
       <div className={classes.container}>
-        <Grid container spacing={24}>
-          <Grid item xs={4}>
-          {
-            characters.map( c => {
-              return (
-                <Character characters={c}/>
-              )
-            })
-          }
+        <Grid container spacing={6} 
+          justify="center"
+          alignItems="center">
+          <Grid item xs={10} sm={8} direction="row">
+            {
+              characters.map(c => {
+                return (
+                  <Character characters={c} />
+                )
+              })
+            }
           </Grid>
         </Grid>
       </div>
