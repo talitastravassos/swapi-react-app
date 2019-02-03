@@ -23,18 +23,37 @@ console.log(theme)
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { search: {} }
+    this.state = { search: {}, isSearching: false }
     this.characterSearch = this.characterSearch
+
+    this.isSearching = () => {
+      if(this.state.search.count >= 1){
+        this.setState( {isSearching: true }, console.log(this.state.isSearching) )}
+      }
   }
-  characterSearch = (search) => { this.setState({ search }, console.log(this.state.search)) }
+  characterSearch = (search) => { 
+    this.setState({ search }, 
+    console.log(this.state.search))
+    this.isSearching();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot){
+      
+    }
 
   render() {
+    const isResult = this.state.isSearching;
+    let result;
+
+    if(isResult){
+      result = <Result results={this.state.search} />
+    }
 
     return (
       <MuiThemeProvider theme={theme}>
         <Header />
-        <Search getSearch={this.characterSearch} />
-        <Result results={this.state.search} />
+        <Search getSearch={this.characterSearch.bind(this)} />
+        {result}
       </MuiThemeProvider>
     );
   }

@@ -76,7 +76,7 @@ class Search extends React.Component {
       fetch(`https://swapi.co/api/people/?search=${this.state.name}`)
       .then( response => response.json() )
       .then( json => this.setState({ character: json }, ( ) => {
-        console.log("Result: ", this.state.character)
+        //console.log("Result: ", this.state.character)
         this.props.getSearch(this.state.character)
         }))
     }, 2000)
@@ -91,7 +91,7 @@ class Search extends React.Component {
           label="Search Star Wars Character"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange('name')}
+          onChange={this.handleChange('name').bind(this)}
           margin="normal"
           InputLabelProps={{
             classes: {

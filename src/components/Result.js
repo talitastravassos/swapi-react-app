@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+
+
+import Character from './Character';
 
 
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexGrow: 1,
-    padding: theme.spacing.unit * 4,
+    flexGrow: 2,
+    padding: theme.spacing.unit * 2,
     backgroundColor: 'black'
   },
   card: {
@@ -46,6 +45,7 @@ class Result extends React.Component {
       count: false
     };
 
+    this.updateCharacter = () => this.setState( {characters: this.props.results} )
     this.getCount = () => this.setState( {count: true} )
   }
 
@@ -53,9 +53,10 @@ class Result extends React.Component {
     //if(this.props.results.count >= 1){
       //this.getCount();
     //}
+
     
-    console.log('componentDidUpdate')
-    console.log(this.props.results['results'][0].name)
+    //console.log('componentDidUpdate')
+    //console.log(this.props.results)
    }
 
 
@@ -68,48 +69,20 @@ class Result extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const characters = this.props.results.results;
+    console.log("result ccomponent", characters)
     
     return (
       <div className={classes.container}>
         <Grid container spacing={24}>
-          <Grid item xs={6}>
-            <Card className={classes.card}>
-              <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                  Character Name
-        </Typography>
-                <Typography variant="h4" component="h2">
-                  Luke
-        </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  <strong>Height:</strong> {172}
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  <strong>Mass: {77}</strong>
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  Hair Color: Blond
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  Skin Color: Fair
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  Eye Color: Blue
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  Birth Year: 19BBY
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  Gender: Male
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  HomeWorld: 19BBY
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
+          <Grid item xs={4}>
+          {
+            characters.map( c => {
+              return (
+                <Character characters={c}/>
+              )
+            })
+          }
           </Grid>
         </Grid>
       </div>
