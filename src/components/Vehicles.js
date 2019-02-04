@@ -14,7 +14,7 @@ const styles = theme => ({
     fontSize: 18
   },
   listItemText:{
-    fontSize: 28,
+    fontSize: 18,
   },
 });
 

@@ -13,8 +13,8 @@ const styles = theme => ({
     backgroundColor: 'grey',
     fontSize: 18
   },
-  listItemText:{
-    fontSize: 28,
+  listItemText: {
+    fontSize: 16,
   },
 });
 
@@ -22,21 +22,59 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-function Movies(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <List component="nav" subheader={<ListSubheader component="div">Movies</ListSubheader>}
-        className={classes.root}>
-        <ListItem button>
-          <ListItemText classes={{primary:classes.listItemText}} primary="Trash" />
-        </ListItem>
-        <ListItemLink href="#simple-list">
-          <ListItemText classes={{primary:classes.listItemText}} primary="Spam" />
-        </ListItemLink>
-      </List>
-    </div>
-  );
+class Movies extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: []
+    };
+
+  }
+
+  getMovieList(movies){
+
+    const allMovies = movies.map( movies => {
+      return fetch(movies)
+        .then(response => response.json())
+  })
+
+  return Promise.all(allMovies)
+    
+  }
+
+  componentDidMount(){
+      this.getMovieList(this.props.movieList).then(response => {
+        this.setState( { movies: response }, () => console.log(this.state.movies))
+      });
+      
+  }
+
+
+  render(){
+    const { classes } = this.props;
+    const filmsList = this.state.movies;
+
+    return (
+      <div className={classes.root}>
+        <List component="nav" subheader={<ListSubheader component="div">Movies</ListSubheader>}
+          className={classes.root}>
+
+        {
+          filmsList.map(film => {
+            return(
+            <ListItemLink href="#simple-list">
+              <ListItemText classes={{ primary: classes.listItemText }} primary={film.title} />
+            </ListItemLink>
+            )
+          })
+        }
+
+        </List>
+      </div>
+    );
+
+  }
 }
 
 Movies.propTypes = {

@@ -29,6 +29,10 @@ const styles = theme => ({
     },
     title: {
         fontSize: 18,
+        
+    },
+    characterName: {
+        color : 'yellow',
     },
     pos: {
         marginBottom: 19,
@@ -43,15 +47,76 @@ class Character extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            characters: []
+            characters: [],
+            homeworld: {},
+            movies: []
         };
 
-
     }
+
+    getHomeWorld(homeworld){
+
+    fetch(homeworld)
+      .then( response => response.json() )
+      .then( json => this.setState({ homeworld: json } ))
+
+        return this.state.homeworld.name
+    }
+
+    // getMovieList(movies){
+
+    //     return Promise.all(movies.map( movie => {
+    //         return fetch(movie).then(response => response.json())
+    //     }))
+    // }
+
+    getVehiclesList(vehicles){
+        
+        const allVehicles = vehicles.map( vehicles => {
+           return fetch(vehicles).then(response => response.json())
+        })
+
+        return Promise.all(allVehicles)
+    }
+
+    getStarshipsList(starships){
+        
+        const allStarships = starships.map( starship => {
+            return fetch(starship).then(response => response.json())
+        })
+
+        return Promise.all(allStarships)
+    }
+
+    componentDidMount(){
+        const character = this.props.characters;
+        const movies = character.films;
+        const vehicles = character.vehicles;
+        const starships = character.starships;
+
+
+        // this.getVehiclesList(vehicles).then(response => 
+        //     console.log("The vehicles we got from the server:", response)
+        // );
+
+        // this.getStarshipsList(starships).then(response => 
+        //     console.log("The starships we got from the server:", response)
+        // );
+        
+    }
+
 
     render() {
         const { classes } = this.props;
         const character = this.props.characters;
+        const movies = character.films;
+        const vehicles = character.vehicles;
+        const starships = character.starships;
+
+        //const listMovies = this.getMovieList(movies).then(response => response);
+
+        //console.log(movies)
+
         return (
             <div className="classes.container">
                 <Card key={character.url} className={classes.card} >
@@ -59,7 +124,7 @@ class Character extends React.Component {
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             Character Name
                     </Typography>
-                        <Typography variant="h2" component="h2">
+                        <Typography variant="h2" component="h2" className={classes.characterName}>
                             {character.name}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
@@ -84,18 +149,18 @@ class Character extends React.Component {
                             Gender: {character.gender}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
-                            HomeWorld: 19BBY
+                            Homeworld: { this.getHomeWorld(character.homeworld) } 
                     </Typography>
                     </CardContent>
                     <Grid container spacing={16}>
                         <Grid item xs={4}>
-                            <Movies />
+                            <Movies movieList={movies}/>
                         </Grid>
                         <Grid item xs={4}>
-                            <Vehicles />
+                            <Vehicles vehiclesList={this.getVehiclesList(vehicles)}/>
                         </Grid>
                         <Grid item xs={4}>
-                            <Starships />
+                            <Starships starshipsList={this.getStarshipsList(starships)}/>
                         </Grid>
                     </Grid>
 
