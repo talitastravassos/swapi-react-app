@@ -10,11 +10,11 @@ const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
     fontSize: 18
   },
-  listItemText:{
-    fontSize: 18,
+  listItemText: {
+    fontSize: 16,
   },
 });
 
@@ -22,21 +22,56 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-function Vehicles(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <List component="nav" subheader={<ListSubheader component="div">Vehicles</ListSubheader>}
-        className={classes.root}>
-        <ListItem button>
-          <ListItemText classes={{primary:classes.listItemText}} primary="Trash" />
-        </ListItem>
-        <ListItemLink href="#simple-list">
-          <ListItemText classes={{primary:classes.listItemText}} primary="Spam" />
-        </ListItemLink>
-      </List>
-    </div>
-  );
+class Vehicles extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      vehicles: []
+    };
+
+  }
+
+  getVehiclesList(vehicles){
+        
+    const allVehicles = vehicles.map( vehicles => {
+       return fetch(vehicles).then(response => response.json())
+    })
+
+    return Promise.all(allVehicles)
+}
+
+  componentDidMount(){
+      this.getVehiclesList(this.props.vehiclesList).then(response => {
+        this.setState( { vehicles: response }, () => console.log(this.state.vehicles))
+      });
+      
+  }
+
+  render(){
+    const { classes } = this.props;
+    const vehiclesList = this.state.vehicles;
+
+    return (
+      <div className={classes.root}>
+        <List component="nav" subheader={<ListSubheader component="div">Vehicles</ListSubheader>}
+          className={classes.root}>
+
+        {
+          vehiclesList.map(vehicle => {
+            return(
+            <ListItemLink href="#simple-list">
+              <ListItemText classes={{ primary: classes.listItemText }} primary={vehicle.name} />
+            </ListItemLink>
+            )
+          })
+        }
+
+        </List>
+      </div>
+    );
+
+  }
 }
 
 Vehicles.propTypes = {

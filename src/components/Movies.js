@@ -10,7 +10,7 @@ const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
     fontSize: 18
   },
   listItemText: {
@@ -49,7 +49,6 @@ class Movies extends React.Component {
       });
       
   }
-
 
   render(){
     const { classes } = this.props;
