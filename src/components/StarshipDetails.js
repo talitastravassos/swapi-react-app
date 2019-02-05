@@ -50,50 +50,50 @@ export class StarshipDetails extends Component {
         const starship = this.props.location.state.starship;
 
         return (
-            <div className="this.props.container">
+            <div>
                 <h1>Starship Details</h1>
 
                 <Header />
 
                 <Card className={this.props.card} >
                     <CardContent>
-                        <Typography className={this.props.title} color="textSecondary" gutterBottom>
+                        <Typography className={this.props.title} variant="h4" component="h4" color="textSecondary" gutterBottom>
                         Starship Title
                     </Typography>
                         <Typography variant="h3" component="h3" className={this.props.starshipName}>
                             {starship.name}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                             <strong>Model:</strong> {starship.model}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                             <strong>Manufacturer:</strong> {starship.manufacturer}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                             <strong>Length:</strong> {starship.length}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Max Atmosphering Speed:</strong> {starship.max_atmosphering_speed}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Crew:</strong> {starship.crew}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Passengers:</strong> {starship.passengers}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Cargo Capacity:</strong> {starship.cargo_capacity}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Consumables:</strong> {starship.consumables}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Hyperdrive Rating:</strong> {starship.hyperdrive_rating}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>MGLT:</strong> {starship.MGLT}
                         </Typography>
-                        <Typography className={this.props.pos} color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                         <strong>Starship Class:</strong> {starship.starship_class}
                         </Typography>
                     </CardContent>

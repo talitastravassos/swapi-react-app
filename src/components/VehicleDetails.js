@@ -50,42 +50,40 @@ export class VehicleDetails extends Component {
 
         return (
             <div>
-                <h1>Vehicle Details</h1>
-
-                <Header />
+            <Header />
 
                 <Card className={this.props.card} >
                     <CardContent>
-                        <Typography className={this.props.title} color="textSecondary" gutterBottom>
+                        <Typography className={this.props.title} variant="h4" component="h4" color="textSecondary" gutterBottom>
                             Vehicle Name
                     </Typography>
                         <Typography variant="h2" component="h2" className={this.props.vehicleName}>
                             {vehicle.name}
                         </Typography>
-                        <Typography className="{this.props.pos}" variant="h4" component="h4" color="textSecondary">
+                        <Typography className="{this.props.pos}" variant="h5" component="h5" color="textSecondary">
                             <strong>Model:</strong> {vehicle.model}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4"color="textSecondary">
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
                             <strong>Manufacturer:</strong> {vehicle.manufacturer}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Length:</strong> {vehicle.length}
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Length:</strong> {vehicle.length}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Max Atmosphering Speed:</strong> {vehicle.max_atmosphering_speed}
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Max Atmosphering Speed:</strong> {vehicle.max_atmosphering_speed}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Crew:</strong> {vehicle.crew}
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Crew:</strong> {vehicle.crew}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Passengers:</strong> {vehicle.passengers}
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Passengers:</strong> {vehicle.passengers}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Cargo Capacity:</strong> {vehicle.cargo_capacity}
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Cargo Capacity:</strong> {vehicle.cargo_capacity}
                         </Typography>
-                        <Typography className={this.props.pos} variant="h4" component="h4" color="textSecondary">
-                        <strong>Vehicle Class:</strong> {vehicle.vehicle_class}
-                    </Typography>
+                        <Typography className={this.props.pos} variant="h5" component="h5" color="textSecondary">
+                            <strong>Vehicle Class:</strong> {vehicle.vehicle_class}
+                        </Typography>
                     </CardContent>
                 </Card>
 
