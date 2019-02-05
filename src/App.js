@@ -36,10 +36,6 @@ class App extends Component {
     this.isSearching();
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot){
-      
-    }
-
   render() {
     const isResult = this.state.isSearching;
     let result;

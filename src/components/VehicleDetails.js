@@ -42,7 +42,6 @@ export class VehicleDetails extends Component {
 
     componentDidMount() {
         console.log(this.props.location.state.vehicle);
-
     }
 
     render() {

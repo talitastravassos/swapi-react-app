@@ -45,7 +45,6 @@ export class StarshipDetails extends Component {
 
     }
 
-
     render() {
         const starship = this.props.location.state.starship;
 

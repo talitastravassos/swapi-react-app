@@ -70,7 +70,6 @@ class Starships extends React.Component {
         </List>
       </div>
     );
-
   }
 }
 
