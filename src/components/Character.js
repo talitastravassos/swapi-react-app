@@ -62,6 +62,16 @@ class Character extends React.Component {
         return this.state.homeworld.name
     }
 
+    getFavorite(character){
+
+        return JSON.parse(localStorage.getItem("character_" + character.url))
+    }
+    setFavorite(character){
+
+        localStorage.setItem('character_' + character.url, JSON.stringify(character));
+    }
+
+
     render() {
         const { classes } = this.props;
         const character = this.props.characters;
@@ -116,9 +126,8 @@ class Character extends React.Component {
                         </Grid>
                     </Grid>
 
-
                     <CardActions>
-                        <Button size="small">Favorite</Button>
+                        <Button size="large" variant="contained" color="primary" onClick={this.setFavorite(character)}>Favorite</Button>
                     </CardActions>
                 </Card>
                 )

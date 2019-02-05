@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -18,9 +19,6 @@ const styles = theme => ({
   },
 });
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 class Vehicles extends React.Component {
 
@@ -60,9 +58,13 @@ class Vehicles extends React.Component {
         {
           vehiclesList.map(vehicle => {
             return(
-            <ListItemLink href="#simple-list">
-              <ListItemText classes={{ primary: classes.listItemText }} primary={vehicle.name} />
-            </ListItemLink>
+              <ListItem button key={vehicle.url} component={Link} to={{
+                pathname:`/vehicledetails/${vehicle.name}`, 
+                state:{
+                  vehicle
+                  }}} >
+                <ListItemText classes={{ primary: classes.listItemText }} primary={vehicle.name} />
+              </ListItem>
             )
           })
         }

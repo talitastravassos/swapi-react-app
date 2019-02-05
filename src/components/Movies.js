@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -18,9 +19,6 @@ const styles = theme => ({
   },
 });
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 class Movies extends React.Component {
 
@@ -62,9 +60,13 @@ class Movies extends React.Component {
         {
           filmsList.map(film => {
             return(
-            <ListItemLink href="#simple-list">
+            <ListItem button key={film.url} component={Link} to={{
+              pathname:`/moviedetails/${film.episode_id}`, 
+              state:{
+              movie: film
+                }}} >
               <ListItemText classes={{ primary: classes.listItemText }} primary={film.title} />
-            </ListItemLink>
+            </ListItem>
             )
           })
         }

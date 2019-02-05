@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -17,10 +18,6 @@ const styles = theme => ({
     fontSize: 16,
   },
 });
-
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 class Starships extends React.Component {
 
@@ -59,9 +56,13 @@ class Starships extends React.Component {
         {
           starshipsList.map(starship => {
             return(
-            <ListItemLink href="#simple-list">
-              <ListItemText classes={{ primary: classes.listItemText }} primary={starship.name} />
-            </ListItemLink>
+              <ListItem button key={starship.url} component={Link} to={{
+                pathname:`/starshipdetails/${starship.name}`, 
+                state:{
+                  starship
+                  }}} >
+                <ListItemText classes={{ primary: classes.listItemText }} primary={starship.name} />
+              </ListItem>
             )
           })
         }

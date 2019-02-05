@@ -29,11 +29,17 @@
 }
 
 .App-div{
-  color: aliceblue;
+  color: yellow;
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card-details{
+  margin-bottom: 19px;
+  margin-top: 19px;
+  font-size: 24px;
 }
 
 

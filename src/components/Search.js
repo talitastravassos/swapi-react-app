@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import 'whatwg-fetch';
 
 const styles = theme => ({
@@ -11,7 +10,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'yellow'
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -36,7 +35,7 @@ const styles = theme => ({
   },
 
   cssFocused: {
-    color: 'yellow'
+    color: 'black'
   },
 
   resize:{
@@ -79,7 +78,7 @@ class Search extends React.Component {
         //console.log("Result: ", this.state.character)
         this.props.getSearch(this.state.character)
         }))
-    }, 2000)
+    }, 1000)
   };
 
   render() {
@@ -109,9 +108,6 @@ class Search extends React.Component {
             inputMode: "numeric"
           }}
         />
-        <Button variant="contained" color="primary" className={classes.button}>
-        GO
-      </Button>
         </form>
     );
     

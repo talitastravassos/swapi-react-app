@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import grey from '@material-ui/core/colors/grey';
 
 //import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Search from './components/Search';
 import Result from './components/Result';
+import Loader from './components/Loader';
 
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: grey[900] }, // Purple and green play nicely together.
-    secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+    primary: { main: '#ffff00' }, 
+    secondary: { main: '#11cb5f' },
   },
   type: 'dark',
   typography: { useNextVariants: true },
@@ -47,6 +47,8 @@ class App extends Component {
 
     if(isResult){
       result = <Result results={this.state.search} />
+    } else {
+      result = <Loader />
     }
 
     return (
