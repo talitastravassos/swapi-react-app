@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Header from './Header';
+import Navigation from './Navigation';
 
 const styles = theme => ({
     container: {
@@ -50,6 +51,7 @@ export class StarshipDetails extends Component {
 
         return (
             <div>
+                <Navigation />
                 <h1>Starship Details</h1>
 
                 <Header />

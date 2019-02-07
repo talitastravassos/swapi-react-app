@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Header from './Header';
+import Navigation from './Navigation';
 
 const styles = theme => ({
     container: {
@@ -50,7 +51,9 @@ export class MovieDetails extends Component {
         const movie = this.props.location.state.movie;
 
         return (
+
             <div className="classes.container">
+            <Navigation />
                 <h1>Movie Details</h1>
 
                 <Header />

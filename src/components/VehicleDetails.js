@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Header from './Header';
+import Navigation from './Navigation';
 
 const styles = theme => ({
     container: {
@@ -49,6 +50,7 @@ export class VehicleDetails extends Component {
 
         return (
             <div>
+                <Navigation />
             <Header />
 
                 <Card className={this.props.card} >
