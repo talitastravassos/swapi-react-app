@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react'
 import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FindReplace from '@material-ui/icons/FindReplace';
 import { makeStyles } from '@material-ui/core/styles';
-import 'whatwg-fetch';
 import { SwapiContext } from '../../context/Swapi';
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +49,12 @@ const Search = () => {
         label="Search"
         className={classes.textField}
         InputProps={{
-          className: classes.input
+          className: classes.input,
+          startAdornment: (
+            <InputAdornment position="start">
+              <FindReplace />
+            </InputAdornment>
+          )
         }}
         InputLabelProps={{
           className: classes.inputLabel
