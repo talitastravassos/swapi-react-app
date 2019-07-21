@@ -1,23 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import Header from './components/Header';
-import Search from './components/Search';
+import Header from './components/Header/Header';
+import Search from './components/Search/Search';
 import Result from './components/Result';
-import Loader from './components/Loader';
-
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#ffff00' }, 
-    secondary: { main: '#11cb5f' },
-  },
-  type: 'dark',
-  typography: { useNextVariants: true },
-});
-
-console.log(theme)
+//import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props) {
@@ -43,15 +30,15 @@ class App extends Component {
     if(isResult){
       result = <Result results={this.state.search} />
     } else {
-      result = <Loader />
+      //result = <Loader />
     }
 
     return (
-      <MuiThemeProvider theme={theme}>
+      <div className="App">
         <Header />
-        <Search getSearch={this.characterSearch.bind(this)} />
+        <Search />
         {result}
-      </MuiThemeProvider>
+      </div> 
     );
   }
 }
