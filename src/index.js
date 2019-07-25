@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -8,7 +9,6 @@ import MovieDetails from './components/MovieDetails';
 import { VehicleDetails } from './components/VehicleDetails';
 import { StarshipDetails } from './components/StarshipDetails';
 
-import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
     <BrowserRouter>
