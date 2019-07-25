@@ -9,19 +9,21 @@ export default class SwapiProvider extends Component {
         super(props)
     
         this.state = {
-            character: {}
+            characters: []
         }
 
     }
 
     getCharacter = (name) => {
-        
-        fetch(`https://swapi.co/api/people/?search=${name}`)
-        .then( response => response.json() )
-        .then( json => this.setState({ character: json }, ( ) => {
-            console.log("Result: ", this.state.character)
-            }))
+        if(name !== ""){
+            fetch(`https://swapi.co/api/people/?search=${name}`)
+            .then( response => response.json() )
+            .then( json => this.setState({ characters: json.results }, ( ) => {
+                console.log("Result: ", this.state.character)
+                }))
 
+        }
+        
     }
     
     render() {

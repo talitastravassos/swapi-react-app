@@ -60,7 +60,11 @@ const Search = () => {
           className: classes.inputLabel
         }}
         value={search}
-        onChange={ e => setSearch(e.target.value)}
+        onChange={ e => {
+          e.preventDefault(e)
+          setSearch(e.target.value)}
+        } 
+          
         margin="normal"
         placeholder="Search Star Wars Stuffs"
       />

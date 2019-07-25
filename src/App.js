@@ -24,20 +24,21 @@ class App extends Component {
     }
 
   render() {
-    const isResult = this.state.isSearching;
-    let result;
+    //const isResult = this.state.isSearching;
+    //let result;
 
-    if(isResult){
-      result = <Result results={this.state.search} />
-    } else {
-      //result = <Loader />
-    }
+    // if(isResult){
+    //   result = <Result results={this.state.search} />
+    // } else {
+    //   //result = <Loader />
+    // }
 
     return (
       <div className="App">
         <Header />
         <Search />
-        {result}
+        <Result />
+        {/* {result} */}
       </div> 
     );
   }

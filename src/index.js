@@ -8,6 +8,8 @@ import MovieDetails from './components/MovieDetails';
 import { VehicleDetails } from './components/VehicleDetails';
 import { StarshipDetails } from './components/StarshipDetails';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
