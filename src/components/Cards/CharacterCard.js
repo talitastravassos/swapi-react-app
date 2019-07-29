@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 
-export const CharacterCard = (props) => {
+export const CharactersCards = (props) => {
 
     // const { 
     //         action: { getCharacter },
@@ -13,18 +13,20 @@ export const CharacterCard = (props) => {
     }, [props])
 
     return (
-        <div>
+        <div className="row">
             {characters.map( character => {
                 return( 
-                    <div className="card">
-                        <div className="card-header">
-                        {character.name}
+                    <div className="col-lg-4 col-md-6">  
+                        <div className="card">
+                            <div className="card-header">
+                            <img src="https://www.logospng.com/images/213/im-225genes-de-personajes-star-wars-para-peques-213723.png" alt="Star Wars Logo" height="62" width="72"></img>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{character.name}</h5>
+                                <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+                                <a href="#" class="btn btn-warning">Detalhes</a>
+                            </div>
                         </div>
-                        {/* <div class="card-body">
-                            <h5 class="card-title">Título especial</h5>
-                            <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-                            <a href="#" class="btn btn-primary">Visitar</a>
-                        </div> */}
                     </div>
 
                 )

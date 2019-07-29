@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import { SwapiContext } from "../context/Swapi";
-import { CharacterCard } from "./Cards/CharacterCard";
+import { CharactersCards } from "./Cards/CharacterCard";
 
 const Result = () => {
 
@@ -14,11 +14,7 @@ const Result = () => {
 
   return (
       <div className="container">
-        <div className="row justify-content-md-center">
-          <div className="col">
-            <CharacterCard characters={characters}/>
-          </div> 
-        </div>
+          <CharactersCards characters={characters}/>
       </div>
   )
 }

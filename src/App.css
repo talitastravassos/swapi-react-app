@@ -46,6 +46,10 @@
   font-size: 24px;
 }
 
+.card {
+  margin: 10% 10%;
+}
+
 
 
 @keyframes App-logo-spin {
