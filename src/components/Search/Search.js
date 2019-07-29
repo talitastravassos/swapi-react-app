@@ -66,7 +66,7 @@ const Search = () => {
         } 
           
         margin="normal"
-        placeholder="Search Star Wars Stuffs"
+        placeholder="Search Star Wars Character"
       />
     </form>
   )

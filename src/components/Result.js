@@ -13,7 +13,7 @@ const Result = () => {
   }, [characters])  
 
   return (
-      <div className="container">
+      <div className="container-fluid">
           <CharactersCards characters={characters}/>
       </div>
   )
