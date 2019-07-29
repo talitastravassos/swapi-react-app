@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -10,7 +10,7 @@ import { SwapiContext } from "./context/Swapi";
 const App = () => {
   
   const { 
-    action: { getCharacter },
+    //action: { getCharacter },
     state: { characters }} = useContext(SwapiContext)
 
   return (

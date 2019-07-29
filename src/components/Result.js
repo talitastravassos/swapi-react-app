@@ -5,7 +5,7 @@ import { CharactersCards } from "./Cards/CharacterCard";
 const Result = () => {
 
   const { 
-    action: { getCharacter },
+    //action: { getCharacter },
     state: { characters }} = useContext(SwapiContext)
 
   useEffect(() => {
