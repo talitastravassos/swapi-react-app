@@ -1,10 +1,11 @@
 import React, {useContext, useEffect} from 'react'
+import { SwapiContext } from "../../context/Swapi";
 
 export const CharactersCards = (props) => {
 
-    // const { 
-    //         action: { getCharacter },
-    //         state: { character }} = useContext(SwapiContext)
+    const { 
+            action: { getCharacter, getHomeWorld },
+            state: { character }} = useContext(SwapiContext)
 
     const { characters } = props;        
 
@@ -34,6 +35,9 @@ export const CharactersCards = (props) => {
                                 </p>
                                 <p className="card-text">
                                 <strong> Gender:</strong> {character.gender}
+                                </p>
+                                <p className="card-text">
+                                {/* <strong> HomeWorld</strong> {getHomeWorld(character.homeworld)} */}
                                 </p>
                                
 

@@ -9,7 +9,8 @@ export default class SwapiProvider extends Component {
         super(props)
     
         this.state = {
-            characters: []
+            characters: [],
+            homeworld: {}
         }
 
     }
@@ -25,12 +26,22 @@ export default class SwapiProvider extends Component {
         }
         
     }
+
+    getHomeWorld = (url) => {
+        
+    fetch(url)
+      .then( response => response.json() )
+      .then( json => this.setState({ homeworld: json } ))
+
+        return this.state.homeworld.name
+    }
     
     render() {
         const value = {
             state: { ...this.state },
             action: {
-              getCharacter: this.getCharacter
+              getCharacter: this.getCharacter,
+              getHomeWorld: this.getHomeWorld
             }
           };
       
