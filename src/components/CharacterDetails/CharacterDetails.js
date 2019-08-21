@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { SwapiContext } from "../../context/Swapi";
 
@@ -7,8 +7,6 @@ const CharacterDetails = (props) => {
     const { 
         action: { getCharacter, getHomeWorld },
         state: { selectedCharacter }} = useContext(SwapiContext)
-
-    const [url, setUrl] = useState("")    
 
     useEffect(() => {
        getCharacter(props.location.query.url)
