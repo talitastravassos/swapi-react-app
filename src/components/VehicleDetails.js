@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import Header from './Header/Header';
 import Navigation from './Navigation';
 
 const styles = theme => ({
