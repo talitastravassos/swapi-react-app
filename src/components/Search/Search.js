@@ -32,13 +32,13 @@ const useStyles = makeStyles(theme => ({
 
 const Search = () => {
   const { action:{
-    getCharacter
+    getSearch
   }} = useContext(SwapiContext)
   const classes = useStyles();
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    getCharacter(search)
+    getSearch(search)
   }, [search])
 
   return (

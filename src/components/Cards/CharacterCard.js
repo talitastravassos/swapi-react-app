@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export const CharactersCards = (props) => {
 
     const { 
-            action: { getCharacter, getHomeWorld },
+            action: { getCharacter, getHomeWorld, selectCharacter },
             state: { character }} = useContext(SwapiContext)
 
     const { characters } = props;        
@@ -13,6 +13,10 @@ export const CharactersCards = (props) => {
     useEffect(() => {
         console.log("props", characters)
     }, [props])
+
+    const select = (character) => {
+        selectCharacter(character)
+    }
 
     return (
         <div className="row">
@@ -42,7 +46,14 @@ export const CharactersCards = (props) => {
                                 </p>
                                
 
-                                <Link to={`/characterdetails/${character.name}`} className="btn btn-warning" >Detalhes</Link>
+                                <Link 
+                                    to={
+                                        { pathname: `/characterdetails/${character.name}`, 
+                                          query:{url: character.url} 
+                                        }} 
+                                    className="btn btn-warning"
+                                    
+                                    >Detalhes</Link>
                             </div>
                         </div>
                     </div>
