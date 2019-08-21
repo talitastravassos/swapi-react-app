@@ -15,7 +15,7 @@ const App = () => {
 
   return (
       <div className="App">
-         <Header />
+         {/* <Header /> */}
          <Search />
          { (characters.length) ? <Result/> : "" }
          {/* <Result /> */}

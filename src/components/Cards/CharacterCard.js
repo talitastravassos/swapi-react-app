@@ -1,11 +1,12 @@
-import React, { useEffect} from 'react'
-//import { SwapiContext } from "../../context/Swapi";
+import React, { useEffect, useContext, useState } from 'react'
+import { SwapiContext } from "../../context/Swapi";
+import { Link } from 'react-router-dom'
 
 export const CharactersCards = (props) => {
 
-    // const { 
-    //         action: { getCharacter, getHomeWorld },
-    //         state: { character }} = useContext(SwapiContext)
+    const { 
+            action: { getCharacter, getHomeWorld },
+            state: { character }} = useContext(SwapiContext)
 
     const { characters } = props;        
 
@@ -37,11 +38,11 @@ export const CharactersCards = (props) => {
                                 <strong> Gender:</strong> {character.gender}
                                 </p>
                                 <p className="card-text">
-                                {/* <strong> HomeWorld</strong> {getHomeWorld(character.homeworld)} */}
+                                    {/* <Homeworld homeworld={character.homeworld}/> */}
                                 </p>
                                
 
-                                <button className="btn btn-warning">Detalhes</button>
+                                <Link to={`/characterdetails/${character.name}`} className="btn btn-warning" >Detalhes</Link>
                             </div>
                         </div>
                     </div>
@@ -52,3 +53,25 @@ export const CharactersCards = (props) => {
         </div>
     )
 }
+
+
+
+const Homeworld = (props) => {
+
+    const [homeworld, setHomeworld] = useState("")
+
+    const { 
+        action: { getCharacter, getHomeWorld },
+        state: { character }} = useContext(SwapiContext)
+
+    useEffect(() => {
+        setHomeworld(getHomeWorld(props.homeworld))
+    }, [])    
+
+    return (
+        <p>
+            <strong> HomeWorld</strong> {homeworld}   
+        </p>
+    )
+}
+
