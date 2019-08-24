@@ -10,7 +10,6 @@ import { SwapiContext } from "./context/Swapi";
 const App = () => {
   
   const { 
-    //action: { getCharacter },
     state: { characters }} = useContext(SwapiContext)
 
   return (
@@ -18,7 +17,6 @@ const App = () => {
          <Header />
          <Search />
          { (characters.length) ? <Result/> : "" }
-         {/* <Result /> */}
       </div> 
   )
 }
